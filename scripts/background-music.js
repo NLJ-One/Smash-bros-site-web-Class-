@@ -16,6 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Audio ready:', audioPlayer.currentSrc || 'no-src');
     });
 
+    if (audioPlayer.autoplay && audioPlayer.muted) {
+        console.log('Audio autoplay is muted by browser policy. Click to enable sound.');
+    }
+
     audioPlayer.addEventListener('playing', function() {
         console.log('Audio playing');
     });

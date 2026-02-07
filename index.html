@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/top3-podium.css">
     <link rel="stylesheet" href="styles/themes.css">
     <link rel="stylesheet" href="styles/cta-button.css">
+    <link rel="stylesheet" href="styles/audio-player.css">
     <!-- Slick Slider CSS -->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
@@ -27,9 +28,15 @@
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
     
     <!-- Background Music Player -->
-    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline controls>
+    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
         <source src="Main Theme - Super Smash Bros_ Brawl.mp3" type="audio/mpeg">
     </audio>
+
+    <div class="audio-player-container" aria-live="polite">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Activer la musique">🔇</button>
+        <span class="volume-label">MUSIQUE</span>
+        <input id="volumeControl" type="range" min="0" max="100" value="30" aria-label="Volume de la musique">
+    </div>
     
     <!-- GLOBAL HEADER -->
     <header class="globalheader">
