@@ -10,22 +10,26 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
-    <title>Personnages â€“ Smash Arena</title>
+    <title>Personnages - Smash Arena</title>
     <!-- Google Fonts - Anton + Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/themes.css">
+    <link rel="stylesheet" href="../styles/audio-player.css">
 </head>
 
 <body class="characters-page">
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
     
     <!-- Background Music Player -->
-    <audio id="bgAudio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
+        <source src="../Main Theme - Super Smash Bros_ Brawl.mp3" type="audio/mpeg">
     </audio>
+    <div class="audio-player-container" aria-live="polite">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Activer la musique">🔇</button>
+    </div>
 
     <header class="globalheader">
         <nav class="navbar" aria-label="Navigation principale">
@@ -39,7 +43,7 @@
                 <li><a href="stats.html">Stats Globales</a></li>
                 <li><a href="saison.html">Saison</a></li>
             </ul>
-            <div class="nav-footer">Â© 2026 Smash Arena</div>
+            <div class="nav-footer">© 2026 Smash Arena</div>
         </nav>
     </header>
 
@@ -51,7 +55,7 @@
     </main>
 
     <footer class="footer">
-        <p>SMASH ARENA Â© 2026 â€“ Personnages</p>
+        <p>SMASH ARENA © 2026 - Personnages</p>
     </footer>
 
     <script src="../scripts/security.js"></script>
@@ -60,6 +64,7 @@
     <script src="../scripts/characters.js"></script>
     <script src="../scripts/interactions-clean.js"></script>
     <script src="../scripts/theme-ui-clean.js"></script>
+    <script src="../scripts/background-music.js"></script>
 </body>
 </html>
 

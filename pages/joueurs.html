@@ -17,14 +17,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/themes.css">
+    <link rel="stylesheet" href="../styles/audio-player.css">
 </head>
 <body class="players-page">
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
     
     <!-- Background Music Player -->
-    <audio id="bgAudio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
+        <source src="../Main Theme - Super Smash Bros_ Brawl.mp3" type="audio/mpeg">
     </audio>
+    <div class="audio-player-container" aria-live="polite">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Activer la musique">🔇</button>
+    </div>
     
     <!-- GLOBAL HEADER -->
     <header class="globalheader">
@@ -42,7 +46,7 @@
             </ul>
 
             <div class="nav-footer">
-                Â© 2026 Smash Arena
+                © 2026 Smash Arena
             </div>
         </nav>
     </header>
@@ -57,13 +61,13 @@
             </div>
 
             <div class="players-grid" id="playersList">
-                <!-- GÃ©nÃ©rÃ© par JS -->
+                <!-- Généré par JS -->
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>SMASH ARENA Â© 2026 - Joueurs</p>
+        <p>SMASH ARENA © 2026 - Joueurs</p>
     </footer>
 
     <script src="../scripts/security.js"></script>

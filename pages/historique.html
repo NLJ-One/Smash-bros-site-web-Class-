@@ -16,21 +16,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/themes.css">
     <link rel="stylesheet" href="../styles/audio-player.css">
 </head>
 <body class="history-page">
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
     
     <!-- Background Music Player -->
-    <audio id="bgAudio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
+        <source src="../Main Theme - Super Smash Bros_ Brawl.mp3" type="audio/mpeg">
     </audio>
-    <div class="audio-player-container">
-        <button id="musicToggle" class="music-toggle" aria-label="Basculer la musique de fond">🔊</button>
-        <div class="volume-control-wrapper">
-            <label for="volumeControl" class="volume-label">Volume</label>
-            <input type="range" id="volumeControl" min="0" max="100" value="30" aria-label="Contrôle du volume">
-        </div>
+    <div class="audio-player-container" aria-live="polite">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Activer la musique">🔇</button>
     </div>
     
     <!-- GLOBAL HEADER -->
@@ -49,7 +46,7 @@
             </ul>
 
             <div class="nav-footer">
-                Â© 2026 Smash Arena
+                © 2026 Smash Arena
             </div>
         </nav>
     </header>
@@ -60,23 +57,24 @@
             
             <div class="filters">
                 <button class="filter-btn active" data-filter="all">TOUS</button>
-                <button class="filter-btn" data-filter="recent">RÃ‰CENTS</button>
+                <button class="filter-btn" data-filter="recent">RECENTS</button>
                 <button class="filter-btn" data-filter="week">CETTE SEMAINE</button>
             </div>
 
             <div class="history-list" id="historyList">
-                <!-- GÃ©nÃ©rÃ© par JS -->
+                <!-- Généré par JS -->
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>SMASH ARENA Â© 2026 - Historique des matchs</p>
+        <p>SMASH ARENA © 2026 - Historique des matchs</p>
     </footer>
 
     <script src="../scripts/security.js"></script>
     <script src="../scripts/data.js"></script>
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/background-music.js"></script>
 </body>
 </html>
 

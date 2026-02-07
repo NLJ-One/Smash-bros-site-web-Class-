@@ -10,12 +10,13 @@
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
-    <title>Saison â€“ Smash Arena</title>
+    <title>Saison - Smash Arena</title>
     <!-- Google Fonts - Anton + Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/themes.css">
     <link rel="stylesheet" href="../styles/audio-player.css">
 </head>
 
@@ -23,15 +24,11 @@
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
     
     <!-- Background Music Player -->
-    <audio id="bgAudio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
+        <source src="../Main Theme - Super Smash Bros_ Brawl.mp3" type="audio/mpeg">
     </audio>
-    <div class="audio-player-container">
-        <button id="musicToggle" class="music-toggle" aria-label="Basculer la musique de fond">🔊</button>
-        <div class="volume-control-wrapper">
-            <label for="volumeControl" class="volume-label">Volume</label>
-            <input type="range" id="volumeControl" min="0" max="100" value="30" aria-label="Contrôle du volume">
-        </div>
+    <div class="audio-player-container" aria-live="polite">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Activer la musique">🔇</button>
     </div>
 
     <header class="globalheader">
@@ -46,13 +43,13 @@
                 <li><a href="stats.html">Stats Globales</a></li>
                 <li><a href="saison.html">Saison</a></li>
             </ul>
-            <div class="nav-footer">Â© 2026 Smash Arena</div>
+            <div class="nav-footer">© 2026 Smash Arena</div>
         </nav>
     </header>
 
     <main class="container page-transition" id="main" role="main">
-        <section aria-label="RÃ©capitulatif de la saison">
-            <h1 class="section-title">SAISON 1 â€“ RÃ‰CAPITULATIF</h1>
+        <section aria-label="Recapitulatif de la saison">
+            <h1 class="section-title">SAISON 1 - RECAPITULATIF</h1>
 
             <!-- HERO -->
             <section class="season-hero">
@@ -64,7 +61,7 @@
             <div class="season-stats animated-item">
                 <div class="season-stat">
                     <span id="seasonMatches">0</span>
-                    <label for="seasonMatches">Matchs jouÃ©s</label>
+                    <label for="seasonMatches">Matchs joues</label>
                 </div>
                 <div class="season-stat">
                     <span id="seasonPlayers">0</span>
@@ -85,7 +82,7 @@
         <h2 class="section-title">RECORDS DE LA SAISON</h2>
         <div class="season-records animated-section">
             <div class="record-card animated-item">
-                <h3>Plus longue sÃ©rie</h3>
+                <h3>Plus longue serie</h3>
                 <p id="recordStreak">â€”</p>
             </div>
             <div class="record-card animated-item">
@@ -106,7 +103,7 @@
     </main>
 
     <footer class="footer">
-        <p>SMASH ARENA Â© 2026 â€“ Saison</p>
+        <p>SMASH ARENA © 2026 - Saison</p>
     </footer>
 
     <script src="../scripts/security.js"></script>
@@ -114,6 +111,7 @@
     <script src="../scripts/characters-data.js"></script>
     <script src="../scripts/script.js"></script>
     <script src="../scripts/saison.js"></script>
+    <script src="../scripts/background-music.js"></script>
 </body>
 </html>
 

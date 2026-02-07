@@ -16,14 +16,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/themes.css">
+    <link rel="stylesheet" href="../styles/audio-player.css">
 </head>
 <body class="player-detail-page">
     <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
     
     <!-- Background Music Player -->
-    <audio id="bgAudio" loop preload="auto">
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    <audio id="bgAudio" loop preload="auto" autoplay muted playsinline>
+        <source src="../Main Theme - Super Smash Bros_ Brawl.mp3" type="audio/mpeg">
     </audio>
+    <div class="audio-player-container" aria-live="polite">
+        <button class="music-toggle" id="musicToggle" type="button" aria-label="Activer la musique">🔇</button>
+    </div>
     
     <!-- GLOBAL HEADER -->
     <header class="globalheader">
@@ -40,9 +45,7 @@
                 <li><a href="saison.html">Saison</a></li>
             </ul>
 
-            <div class="nav-footer">
-                © 2026 Smash Arena
-            </div>
+            <div class="nav-footer">© 2026 Smash Arena</div>
         </nav>
     </header>
 
@@ -66,6 +69,7 @@
     <script src="../scripts/data.js"></script>
     <script src="../scripts/script.js"></script>
     <script src="../scripts/player-detail.js"></script>
+    <script src="../scripts/background-music.js"></script>
 </body>
 </html>
 
