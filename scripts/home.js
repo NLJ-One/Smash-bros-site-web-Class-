@@ -169,7 +169,20 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFeaturedPlayers();
     renderTop3Display();
     renderGlobalStats();
+    initContactTab();
 });
+
+function initContactTab() {
+    const contactButton = document.querySelector('[data-action="contact"]');
+    const contactTab = document.getElementById('contactTab');
+
+    if (!contactButton || !contactTab) return;
+
+    contactButton.addEventListener('click', () => {
+        contactTab.classList.toggle('is-open');
+        contactButton.setAttribute('aria-expanded', contactTab.classList.contains('is-open'));
+    });
+}
 
 // ============================
 // RENDU - TOP 3 HYBRID
