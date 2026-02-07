@@ -11,13 +11,6 @@ document.addEventListener('dragstart', (e) => {
     return false;
 });
 
-document.addEventListener('touchmove', function(e) {
-    // Bloquer les gestes de défilement excessif
-    if (e.cancelable) {
-        e.preventDefault();
-    }
-}, { passive: false });
-
 // Désactiver le drag sur toutes les images
 document.addEventListener('DOMContentLoaded', () => {
     const images = document.querySelectorAll('img');
