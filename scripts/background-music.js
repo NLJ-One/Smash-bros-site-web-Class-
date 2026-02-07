@@ -1,7 +1,6 @@
 // Background Music Manager
 document.addEventListener('DOMContentLoaded', function() {
     const audioPlayer = document.getElementById('bgAudio');
-    const volumeControl = document.getElementById('volumeControl');
     const musicToggle = document.getElementById('musicToggle');
     
     if (!audioPlayer) return;
@@ -24,23 +23,14 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Audio playing');
     });
     
-    // Set default volume to 30%
-    audioPlayer.volume = 0.3;
-    if (volumeControl) {
-        volumeControl.value = 30;
-    }
-    
-    // Update volume when slider changes
-    if (volumeControl) {
-        volumeControl.addEventListener('input', function() {
-            audioPlayer.volume = this.value / 100;
-        });
-    }
+    // Cap the maximum volume at 50%
+    audioPlayer.volume = 0.5;
     
     // Toggle music on/off
     if (musicToggle) {
         musicToggle.addEventListener('click', function() {
-            if (audioPlayer.paused) {
+            if (audioPlayer.paused || audioPlayer.muted) {
+                audioPlayer.muted = false;
                 audioPlayer.play().catch(function(err) {
                     console.log('Auto-play prevented:', err);
                 });
