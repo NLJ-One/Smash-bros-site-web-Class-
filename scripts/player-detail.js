@@ -46,7 +46,7 @@ function renderPlayerDetail() {
         ? player.winRate
         : Number.parseFloat(player.winRate) || 0;
 
-    const quote = player.quote || 'Toujours prêt à smash la compétition.';
+    const quote = player.quote || "\u00eatre faible c'est ne pas savoir accepter sa d\u00e9faite";
     const mainStats = player.mainStats || {
         winrate: defaultWinRate.toFixed(1),
         killMove: 'Up Smash',
