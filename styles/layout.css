@@ -192,6 +192,20 @@ body.character-detail-page::after {
     z-index: -1;
 }
 
+@media (max-width: 768px) {
+    .ranking-page,
+    body.characters-page,
+    .compare-page,
+    body.players-page,
+    body.player-detail-page,
+    body.stats-page,
+    body.history-page,
+    body.season-page,
+    body.character-detail-page {
+        background-attachment: scroll;
+    }
+}
+
 /* Flou directionnel vers le centre */
 .compare-page::before {
     content: '';
