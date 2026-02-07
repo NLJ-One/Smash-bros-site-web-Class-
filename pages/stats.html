@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
+    <title>Stats Globales â€“ Smash Arena</title>
+    <!-- Google Fonts - Anton + Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body class="stats-page">
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
+    
+    <!-- Background Music Player -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <header class="globalheader">
+        <nav class="navbar" aria-label="Navigation principale">
+            <a href="../index.html" class="nav-logo">SMASH ARENA</a>
+            <ul class="nav-links">
+                <li><a href="classement.html">Classement</a></li>
+                <li><a href="historique.html">Historique</a></li>
+                <li><a href="joueurs.html">Joueurs</a></li>
+                <li><a href="characters.html">Personnages</a></li>
+                <li><a href="compare.html">Comparateur</a></li>
+                <li><a href="stats.html">Stats Globales</a></li>
+                <li><a href="saison.html">Saison</a></li>
+            </ul>
+            <div class="nav-footer">Â© 2026 Smash Arena</div>
+        </nav>
+    </header>
+
+    <main class="container stats-page page-transition" id="main" role="main">
+        <section aria-label="Statistiques globales de Smash Arena">
+        <h1 class="section-title">STATISTIQUES GLOBALES</h1>
+
+        <div class="stats-hero">
+            <div class="stat-hero-number" id="statTotalMatches">0</div>
+            <div class="stat-hero-label">MATCHS JOUÃ‰S</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card animated-item">
+                <div class="stat-number" id="statPlayers">0</div>
+                <div class="stat-label">JOUEURS ACTIFS</div>
+            </div>
+
+            <div class="stat-card animated-item">
+                <div class="stat-number" id="statAvgWinrate">0%</div>
+                <div class="stat-label">WINRATE MOYEN</div>
+            </div>
+
+            <div class="stat-card animated-item">
+                <div class="stat-number" id="statMostPlayed">â€”</div>
+                <div class="stat-label">PERSO LE PLUS JOUÃ‰</div>
+            </div>
+
+            <div class="stat-card animated-item">
+                <div class="stat-number" id="statFastestMatch">0s</div>
+                <div class="stat-label">MATCH LE PLUS RAPIDE</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">ACTIVITÃ‰ DE LA LIGUE</h2>
+        <div class="activity-bars animated-section">
+            <div class="activity-line">
+                <span>Matchs cette semaine</span>
+                <div class="activity-bar"><div class="activity-fill" id="barWeek"></div></div>
+            </div>
+
+            <div class="activity-line">
+                <span>Matchs ce mois</span>
+                <div class="activity-bar"><div class="activity-fill" id="barMonth"></div></div>
+            </div>
+
+            <div class="activity-line">
+                <span>Matchs cette saison</span>
+                <div class="activity-bar"><div class="activity-fill" id="barSeason"></div></div>
+            </div>
+        </div>
+
+        <h2 class="section-title">TOP 3 PERSONNAGES</h2>
+        <div class="top3-characters animated-section" id="top3Characters"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>SMASH ARENA Â© 2026 â€“ Stats Globales</p>
+    </footer>
+
+    <script src="../scripts/security.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/characters-data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/stats.js"></script>
+</body>
+</html>
+

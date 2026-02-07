@@ -1,0 +1,10 @@
+/* ============================
+   CTA BUTTON STYLES
+   ============================ */
+
+.cta-buttons-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}

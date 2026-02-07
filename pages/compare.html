@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
+    <title>Arène de Combat – Smash Ultimate Arena</title>
+    <!-- Google Fonts - Anton + Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/character-select-capcom.css">
+</head>
+<body class="fighter-select-page">
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
+    
+    <!-- Background Music Player -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <header class="globalheader">
+        <nav class="navbar" aria-label="Navigation principale">
+            <a href="../index.html" class="nav-logo">SMASH ARENA</a>
+            <ul class="nav-links">
+                <li><a href="classement.html">Classement</a></li>
+                <li><a href="historique.html">Historique</a></li>
+                <li><a href="joueurs.html">Joueurs</a></li>
+                <li><a href="characters.html">Personnages</a></li>
+                <li><a href="compare.html">Comparateur</a></li>
+                <li><a href="stats.html">Stats Globales</a></li>
+                <li><a href="saison.html">Saison</a></li>
+            </ul>
+            <div class="nav-footer">© Smash Arena par Noah Jean-Louis</div>
+        </nav>
+    </header>
+
+    <section class="character-select" id="characterSelect" aria-label="Arène de combat">
+            <div class="sf5-background"></div>
+            
+            <!-- TOP ZONE : Affichage des fighters sélectionnés -->
+            <div class="top-zone">
+                <div class="fighter-slot left-slot" data-player="1">
+                    <div class="fighter-aura"></div>
+                    <h2 class="fighter-title">COMBATTANT 1</h2>
+                    <div class="fighter-display-container">
+                        <img id="fighter1Display" class="fighter-display" src="" alt="Personnage 1">
+                        <div class="fighter-name-display" id="fighter1Name"></div>
+                    </div>
+                </div>
+
+                <div class="vs-center">
+                    <div class="vs-arena">
+                        <div class="vs-spark left-spark"></div>
+                        <div id="vsText" class="vs-text">VS</div>
+                        <div class="vs-spark right-spark"></div>
+                    </div>
+                    <button class="compare-btn" id="compareBtn" disabled>⚡ COMBATTRE ⚡</button>
+                </div>
+
+                <div class="fighter-slot right-slot" data-player="2">
+                    <div class="fighter-aura"></div>
+                    <h2 class="fighter-title">COMBATTANT 2</h2>
+                    <div class="fighter-display-container">
+                        <img id="fighter2Display" class="fighter-display" src="" alt="Personnage 2">
+                        <div class="fighter-name-display" id="fighter2Name"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GRILLE DE SÉLECTION -->
+            <div class="characters-grid" id="charactersGrid">
+                <!-- Les personnages seront générés dynamiquement -->
+            </div>
+
+            <!-- RÉSULTAT -->
+            <div class="compare-result" id="compareResult"></div>
+        </section>
+
+    <footer class="footer footer-hidden">
+        <p>SMASH ARENA © 2026 – Sélection Combattant</p>
+    </footer>
+
+    <script src="../scripts/security.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/characters-data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/character-select.js"></script>
+</body>
+</html>

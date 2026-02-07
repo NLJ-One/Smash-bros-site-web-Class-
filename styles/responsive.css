@@ -1,0 +1,302 @@
+/* ============================
+   RESPONSIVE - DESKTOP LARGE (1400px+)
+   ============================ */
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1380px;
+    }
+    
+    .podium-container {
+        min-height: 550px;
+        padding: 50px 40px;
+    }
+}
+
+/* ============================
+   RESPONSIVE - TABLETTE LARGE (1200px)
+   ============================ */
+
+@media (max-width: 1200px) {
+    .container {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .hero-title {
+        font-size: 4.5rem;
+    }
+    
+    .podium-container {
+        min-height: 450px;
+        padding: 30px 20px;
+        gap: 20px;
+    }
+    
+    .podium-position {
+        max-width: 240px;
+    }
+    
+    .podium-medal {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+    
+    .podium-medal.first-place {
+        width: 120px;
+        height: 120px;
+        font-size: 2.5rem;
+    }
+    
+    .player-detail-main {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --spacing-lg: 24px;
+        --spacing-xl: 40px;
+    }
+    
+    .hero-section {
+        min-height: 55vh;
+    }
+    
+    .hero-title {
+        font-size: 3.5rem;
+        letter-spacing: 6px;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .hero-section__cta {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 14px 32px;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+    }
+    
+    .featured-players {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    /* Optimiser Top 3 pour tablette */
+    .podium-container {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+        padding: 20px;
+        gap: 20px;
+    }
+    
+    .podium-position {
+        max-width: 100%;
+        width: 100%;
+        flex-direction: row;
+        margin-bottom: 0 !important;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+    }
+    
+    .podium-position.medal-1 {
+        order: 1;
+    }
+    
+    .podium-position.medal-2 {
+        order: 2;
+    }
+    
+    .podium-position.medal-3 {
+        order: 3;
+    }
+    
+    .podium-medal {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+    
+    .podium-medal.first-place {
+        width: 90px;
+        height: 90px;
+        font-size: 1.8rem;
+    }
+    
+    .podium-card {
+        flex: 1;
+        text-align: left;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .stat-card {
+        padding: 16px;
+    }
+    
+    .slick-prev,
+    .slick-next {
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .slick-prev {
+        left: -10px !important;
+    }
+    
+    .slick-next {
+        right: -10px !important;
+    }
+    
+    .player-detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .player-detail-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .player-detail-name {
+        font-size: 1.5rem;
+    }
+    
+    .news-carousel {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --spacing-md: 12px;
+        --spacing-lg: 16px;
+    }
+    
+    .hero-title {
+        font-size: 2.2rem;
+        letter-spacing: 4px;
+        text-shadow: -2px 2px 0 var(--color-red);
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+    }
+    
+    .nav-links {
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-links a {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .featured-players {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .featured-card {
+        padding: 12px;
+    }
+    
+    /* Top 3 sur mobile - amélioration supplémentaire */
+    .podium-container {
+        padding: 12px;
+    }
+    
+    .podium-position {
+        gap: 12px;
+    }
+    
+    .podium-medal {
+        width: 70px;
+        height: 70px;
+        font-size: 1.2rem;
+    }
+    
+    .podium-medal.first-place {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+    
+    .podium-card {
+        padding: 8px;
+    }
+    
+    .podium-card h3 {
+        font-size: 1rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .stat-card {
+        padding: 12px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .cta-card {
+        padding: var(--spacing-lg);
+    }
+    
+    .cta-card h3 {
+        font-size: 1.4rem;
+    }
+    
+    .ranking-list,
+    .history-list,
+    .players-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .news-carousel {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .news-card {
+        padding: 12px;
+    }
+    
+    .slick-prev,
+    .slick-next {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 18px !important;
+    }
+}

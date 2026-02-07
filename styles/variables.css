@@ -1,0 +1,134 @@
+/* ============================
+   RESET & VARIABLES GLOBALES
+   ============================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors */
+    --color-white: #f2f2f2;
+    --color-light-gray: #f5f5f5;
+    --color-gray: #e0e0e0;
+    --color-red: #e60012;
+    --color-red-dark: #cc0010;
+    --color-red-light: #f5e6e6;
+    --color-black: #0a0a0a;
+    --color-dark: #1a1a1a;
+    --color-dark-gray: #333333;
+    
+    /* Fonts - Combat Arcade Style */
+    --font-title: 'Anton', sans-serif;
+    --font-ui: 'Montserrat', sans-serif;
+    --font-main: 'Montserrat', sans-serif; /* fallback */
+    
+    /* Font Sizes */
+    --font-size-title: 4rem;
+    --font-size-subtitle: 1.5rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 1.8rem;
+    --font-size-text: 1rem;
+    
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    --font-weight-black: 900;
+    
+    /* Letter Spacing - Arcade Style */
+    --tracking-tight: -0.05em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.05em;
+    --tracking-wider: 0.1em;
+    
+    /* Spacing */
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+    --spacing-xl: 60px;
+    
+    /* Holo Card Variables */
+    --glitter: radial-gradient(circle, hsla(0, 0%, 100%, 0.8) 1px, transparent 1px);
+    --glittersize: 80px 80px;
+    --sunpillar-clr-1: hsl(46, 95%, 50%);
+    --sunpillar-clr-2: hsl(52, 100%, 69%);
+    --sunpillar-clr-3: hsl(60, 100%, 70%);
+    --sunpillar-clr-4: hsl(46, 95%, 50%);
+    --sunpillar-clr-5: hsl(40, 100%, 60%);
+    --sunpillar-clr-6: hsl(52, 100%, 69%);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-ui);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    line-height: 1.6;
+    font-weight: var(--font-weight-regular);
+}
+
+/* ============================
+   TYPOGRAPHIE ARCADE
+   ============================ */
+
+/* Titres avec Anton - Impact maximal */
+h1, h2, h3,
+.nav-logo,
+.hero-title,
+.section-title,
+.btn,
+.cta-title {
+    font-family: var(--font-title);
+    font-weight: 400; /* Anton n'a qu'un seul poids */
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.1;
+}
+
+h1 {
+    font-size: var(--font-size-title);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+/* Textes UI avec Montserrat - Lisibilité */
+p, a, span, li,
+.nav-links,
+.card-text,
+.filter-btn,
+input, select, textarea {
+    font-family: var(--font-ui);
+    letter-spacing: var(--tracking-wide);
+}
+
+/* Styles arcade pour titres importants */
+.arcade-glow {
+    text-shadow: 
+        0 0 10px rgba(230, 0, 18, 0.5),
+        0 0 20px rgba(230, 0, 18, 0.3),
+        0 0 30px rgba(230, 0, 18, 0.2);
+}
+
+.arcade-outline {
+    text-shadow: 
+        -2px -2px 0 var(--color-black),
+        2px -2px 0 var(--color-black),
+        -2px 2px 0 var(--color-black),
+        2px 2px 0 var(--color-black);
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
+    <title>SMASH ARENA - Classement Compétitif</title>
+    <!-- Google Fonts - Anton + Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/top3-podium.css">
+    <link rel="stylesheet" href="styles/themes.css">
+    <link rel="stylesheet" href="styles/cta-button.css">
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+</head>
+<body class="home">
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
+    
+    <!-- Background Music Player -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="https://youtu.be/zeKE0NHUtUw?si=b6S64oRLjZI_0rF-" type="audio/mpeg">
+    </audio>
+    
+    <!-- GLOBAL HEADER -->
+    <header class="globalheader">
+        <nav class="navbar" aria-label="Navigation principale">
+            <a href="index.html" class="nav-logo">SMASH ARENA</a>
+
+            <ul class="nav-links">
+                <li><a href="pages/classement.html">Classement</a></li>
+                <li><a href="pages/historique.html">Historique</a></li>
+                <li><a href="pages/joueurs.html">Joueurs</a></li>
+                <li><a href="pages/characters.html">Personnages</a></li>
+                <li><a href="pages/compare.html">Comparateur</a></li>
+                <li><a href="pages/stats.html">Stats Globales</a></li>
+                <li><a href="pages/saison.html">Saison</a></li>
+            </ul>
+
+            <div class="nav-footer">
+                © Smash Arena par Noah Jean-Louis
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION - Disposition Améliorée -->
+    <section class="hero-section">
+        <div class="hero-section__overlay"></div>
+        <div class="hero-section__content">
+            <div class="hero-section__text">
+                <h1 class="hero-title">SMASH ARENA</h1>
+                <p class="hero-subtitle">The competition</p>
+            </div>
+            <div class="hero-section__cta">
+                <a href="pages/joueurs.html" class="btn btn-primary">Joueur</a>
+                <a href="pages/classement.html" class="btn btn-secondary">CLASSEMENT</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container" id="main" role="main">
+        <!-- ACTUALITÉS - CAROUSEL SLIDER -->
+        <section class="news-section scroll-reveal" aria-label="Dernières actualités">
+            <h2 class="section-title" id="newsTitle">DERNIÈRES ACTUALITÉS</h2>
+            <div class="news-carousel" id="newsCarousel" aria-labelledby="newsTitle">
+                <!-- Généré par JS -->
+            </div>
+        </section>
+
+        <!-- JOUEURS DE LA SEMAINE -->
+        <section class="featured-section scroll-reveal" aria-label="Joueurs de la semaine">
+            <h2 class="section-title" id="featuredTitle">JOUEURS DE LA SEMAINE</h2>
+            <div class="featured-players" id="featuredPlayers" aria-labelledby="featuredTitle">
+                <!-- Généré par JS -->
+            </div>
+        </section>
+
+        <!-- TOP 3 PODIUM -->
+        <section class="top3-section scroll-reveal" aria-label="Podium top 3">
+            <h2 class="section-title" id="top3Title">TOP 3 ACTUEL</h2>
+            <div class="top3-display" id="top3Display" aria-labelledby="top3Title">
+                <!-- Généré par JS -->
+            </div>
+        </section>
+
+        <!-- SECTION STATS GLOBALES -->
+        <section class="stats-section scroll-reveal" aria-label="Statistiques globales">
+            <h2 class="sr-only">Statistiques de la ligue</h2>
+            <ul class="stats-grid">
+                <li class="stat-card" aria-label="Matchs joués">
+                    <div class="stat-number" id="totalMatches" aria-live="polite">0</div>
+                    <div class="stat-label">MATCHS JOUÉS</div>
+                </li>
+                <li class="stat-card" aria-label="Joueurs actifs">
+                    <div class="stat-number" id="totalPlayers" aria-live="polite">0</div>
+                    <div class="stat-label">JOUEURS ACTIFS</div>
+                </li>
+                <li class="stat-card" aria-label="Points en jeu">
+                    <div class="stat-number" id="totalPoints" aria-live="polite">0</div>
+                    <div class="stat-label">POINTS EN JEU</div>
+                </li>
+                <li class="stat-card" aria-label="Win rate moyen">
+                    <div class="stat-number" id="avgWinRate" aria-live="polite">0%</div>
+                    <div class="stat-label">WIN RATE MOYEN</div>
+                </li>
+            </ul>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section scroll-reveal" aria-label="Appel à l'action">
+            <div class="cta-card">
+                <h3>REJOINS LA LIGUE</h3>
+                <p>Montre tes talents et gravis les classements</p>
+                <div class="cta-buttons-container">
+                    <button class="btn btn-primary" type="button" aria-label="Devenir compétiteur" data-action="contact">DEVENIR COMPÉTITEUR</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 SMASH ARENA - Classement Compétitif</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="scripts/security.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="scripts/interactions-clean.js"></script>
+    <script src="scripts/top3-animations.js"></script>
+    <script src="scripts/theme-ui-clean.js"></script>
+    <script src="scripts/home.js"></script>
+</body>
+</html>
+

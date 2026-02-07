@@ -1,0 +1,1318 @@
+/* ============================
+   BOUTONS GÉNÉRIQUES
+   ============================ */
+
+/* Helpers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Assurer que le contenu est au-dessus des effets de fond */
+.container, .ranking-section, .characters-section, .compare-section {
+    position: relative;
+    z-index: 1;
+}
+
+.btn {
+    padding: 16px 48px;
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-tight);
+    border: 3px solid;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.1s ease;
+    position: relative;
+    box-shadow: -6px 6px 0 rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.btn:hover,
+.btn:focus {
+    outline: none;
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 2px;
+}
+
+.btn:active {
+    transform: translate(-2px, 2px);
+    box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border-color: var(--color-red);
+    transform: skew(-10deg);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-red-dark);
+    border-color: var(--color-red-dark);
+    box-shadow: -8px 8px 0 var(--color-black);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border-color: var(--color-red);
+    transform: skew(10deg);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-red-dark);
+    border-color: var(--color-red-dark);
+    box-shadow: -8px 8px 0 var(--color-black);
+    transform: translateY(-2px);
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid var(--color-black);
+    background: transparent;
+    cursor: pointer;
+    font-family: var(--font-ui);
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: var(--tracking-wide);
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+    background: var(--color-red);
+    color: white;
+    border-color: var(--color-red);
+}
+
+.filter-btn:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 2px;
+}
+
+.filter-btn.active {
+    background: var(--color-red);
+    color: white;
+    border-color: var(--color-red);
+}
+
+/* ============================
+   NEWS - CAROUSEL SLIDER
+   ============================ */
+
+.news-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.news-carousel {
+    position: relative;
+}
+
+.news-carousel .slick-slide {
+    padding: 0 var(--spacing-md);
+}
+
+.news-card {
+    background: var(--color-light-gray);
+    border: 3px solid var(--color-black);
+    padding: var(--spacing-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.news-card:hover,
+.news-card:focus {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    transform: translate(-4px, -4px);
+    box-shadow: -8px 8px 0 var(--color-black);
+}
+
+.news-card:focus-visible {
+    outline: 3px solid var(--color-red);
+    outline-offset: 2px;
+}
+
+.news-card:hover .news-title {
+    color: var(--color-white);
+}
+
+.news-icon {
+    font-size: 2.5rem;
+    text-align: left;
+}
+
+.news-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-black);
+    transition: color 0.2s ease;
+}
+
+.news-description {
+    font-size: 0.95rem;
+    color: var(--color-dark-gray);
+    flex-grow: 1;
+}
+
+.news-date {
+    font-size: 0.85rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================
+   FEATURED PLAYERS
+   ============================ */
+
+.featured-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.featured-players {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.featured-card {
+    background: linear-gradient(135deg, var(--color-light-gray) 0%, var(--color-white) 100%);
+    border: 3px solid var(--color-black);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-red);
+    z-index: -1;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.3s ease;
+}
+
+.featured-card:hover::before {
+    transform: scaleY(1);
+}
+
+.featured-card:hover {
+    color: var(--color-white);
+    transform: translate(-4px, -4px);
+    box-shadow: -8px 8px 0 var(--color-black);
+}
+
+.featured-card:hover .featured-name,
+.featured-card:hover .featured-main {
+    color: var(--color-white);
+}
+
+.featured-medal {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.featured-avatar {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: 3px solid var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin: var(--spacing-md) auto;
+}
+
+.featured-name {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-black);
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.featured-main {
+    font-size: 0.95rem;
+    color: var(--color-dark-gray);
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.featured-stats {
+    font-size: 0.9rem;
+    color: #ffe45f;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+    margin-top: var(--spacing-md);
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================
+   TOP 3 PODIUM
+   ============================ */
+
+.top3-section {
+    margin-bottom: var(--spacing-xl);
+    padding: 50px;
+}
+
+/* ============================
+   CHARACTERS GRID & DETAIL
+   ============================ */
+
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.character-card {
+    background: #111;
+    border: 3px solid var(--color-black);
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+    position: relative;
+}
+
+.character-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: -10px 10px 0 var(--color-red);
+}
+
+.character-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.character-type {
+    display: inline-block;
+    margin-top: 8px;
+    background: var(--color-red);
+    color: white;
+    padding: 4px 10px;
+    border: 2px solid var(--color-black);
+    font-weight: 900;
+}
+
+.character-header {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.character-big-img {
+    width: 200px;
+    border: 4px solid var(--color-black);
+    box-shadow: -8px 8px 0 var(--color-red);
+}
+
+.character-type-big {
+    background: var(--color-red);
+    color: white;
+    padding: 6px 12px;
+    border: 3px solid var(--color-black);
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.character-video-section {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.character-video-wrapper {
+    padding: var(--spacing-md);
+    border: 3px solid var(--color-black);
+    background: var(--color-light-gray);
+    box-shadow: -6px 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.character-video {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    display: block;
+    background: #000;
+}
+
+.character-video-empty {
+    margin: 0;
+    color: var(--color-dark-gray);
+}
+
+/* ============================
+   CHARACTER STATS (PREMIUM CLEAN)
+   ============================ */
+
+.character-stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin: 30px 0;
+}
+
+.stat-item {
+    display: grid;
+    grid-template-columns: 140px 1fr 60px;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 18px;
+    background: #111;
+    border: 3px solid var(--color-black);
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: -8px 8px 0 var(--color-red);
+}
+
+.stat-label {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: var(--color-white);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.stat-bar {
+    width: 100%;
+    height: 12px;
+    background: #222;
+    border: 2px solid var(--color-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: var(--color-red);
+    transition: width 0.4s ease;
+}
+
+.stat-value {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--color-red);
+    text-shadow: -2px 2px 0 var(--color-black);
+}
+
+/* ============================
+   STRENGTHS (FORCES)
+   ============================ */
+
+.strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.strength-card {
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    border: 3px solid var(--color-black);
+    padding: 16px;
+    color: #7CFF7C;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+}
+
+.strength-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: -8px 8px 0 #7CFF7C;
+}
+
+/* ============================
+   WEAKNESSES (FAIBLESSES)
+   ============================ */
+
+.weaknesses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.weakness-card {
+    background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
+    border: 3px solid var(--color-black);
+    padding: 16px;
+    color: #FF6B6B;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+}
+
+.weakness-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: -8px 8px 0 #FF6B6B;
+}
+
+/* ============================
+   MATCHUPS
+   ============================ */
+
+.matchups-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin: 20px 0;
+}
+
+.matchup-block {
+    background: #111;
+    border: 3px solid var(--color-black);
+    padding: 20px;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+}
+
+.matchup-block:hover {
+    transform: translate(-4px, -4px);
+}
+
+.matchup-block.strong:hover {
+    box-shadow: -8px 8px 0 #7CFF7C;
+}
+
+.matchup-block.weak:hover {
+    box-shadow: -8px 8px 0 #FF6B6B;
+}
+
+.matchup-block h3 {
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    color: var(--color-white);
+}
+
+.matchup-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.matchup-block li {
+    padding: 6px 0;
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+/* ============================
+   ANIMATIONS SECTIONS
+   ============================ */
+
+.animated-section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.animated-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.character-list li {
+    margin-bottom: 6px;
+}
+
+.matchups {
+    margin-bottom: 24px;
+}
+
+.top3-display {
+    width: 100%;
+}
+
+.podium {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: var(--spacing-md);
+    min-height: 350px;
+    margin: var(--spacing-xl) 0;
+}
+
+.podium-step {
+    flex: 1;
+    max-width: 200px;
+    border: 4px solid var(--color-black);
+    background: var(--color-light-gray);
+    padding: var(--spacing-lg) var(--spacing-md);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.podium-step:nth-child(1) {
+    order: 2;
+    height: 400px;
+    background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+    border-color: #d4af37;
+}
+
+.podium-step:nth-child(2) {
+    order: 1;
+    height: 360px;
+    background: linear-gradient(135deg, #c0c0c0 0%, #e8e8e8 100%);
+    border-color: #999;
+}
+
+.podium-step:nth-child(3) {
+    order: 3;
+    height: 270px;
+    background: linear-gradient(135deg, #cd7f32 0%, #daa520 100%);
+    border-color: #8b4513;
+}
+
+.podium-step:hover {
+    transform: translate(-4px, -8px);
+    box-shadow: -8px 12px 0 var(--color-black);
+}
+
+.podium-medal {
+    font-size: 3rem;
+}
+
+.podium-avatar {
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: 3px solid var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.podium-name {
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-black);
+    text-align: center;
+}
+
+.podium-points {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.podium-rank {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-red);
+    text-shadow: 2px 2px 0 var(--color-black);
+}
+
+/* ============================
+   STATS GLOBALES
+   ============================ */
+
+.stats-section {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-white) 0%, var(--color-light-gray) 100%);
+    border: 3px solid var(--color-black);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.stat-card {
+    background: var(--color-white);
+    border: 3px solid var(--color-red);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    background: var(--color-red);
+    color: var(--color-white);
+    box-shadow: -6px 6px 0 var(--color-black);
+    transform: translate(-2px, -2px);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--color-red);
+    transition: color 0.2s ease;
+}
+
+.stat-card:hover .stat-number {
+    color: var(--color-white);
+}
+
+.stat-card .stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: var(--color-black);
+    transition: color 0.2s ease;
+}
+
+.stat-card:hover .stat-label {
+    color: var(--color-white);
+}
+
+/* ============================
+   CALL TO ACTION
+   ============================ */
+
+.cta-section {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
+.cta-card {
+    background: linear-gradient(135deg, var(--color-red) 0%, var(--color-red-dark) 100%);
+    border: 4px solid var(--color-black);
+    padding: var(--spacing-xl);
+    text-align: center;
+    color: var(--color-white);
+    box-shadow: -8px 8px 0 var(--color-black);
+    animation: pulse-cta 2s ease-in-out infinite;
+}
+
+.cta-card h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-md);
+}
+
+.cta-card p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 1px;
+}
+
+@keyframes pulse-cta {
+    0%, 100% { box-shadow: -8px 8px 0 var(--color-black); }
+    50% { box-shadow: -10px 10px 0 var(--color-black); }
+}
+
+/* ============================
+   SLICK CAROUSEL CUSTOM
+   ============================ */
+
+.slick-dots {
+    bottom: -40px !important;
+}
+
+.slick-dots li button:before {
+    color: var(--color-red) !important;
+    font-size: 12px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: var(--color-black) !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    color: var(--color-red) !important;
+    font-size: 24px !important;
+}
+
+.slick-prev,
+.slick-next {
+    width: 50px !important;
+    height: 50px !important;
+    z-index: 10;
+}
+
+.slick-prev {
+    left: -70px !important;
+}
+
+.slick-next {
+    right: -70px !important;
+}
+
+/* ============================
+   FILTERS & SEARCH
+   ============================ */
+
+.filters {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+/* Filter buttons - removed duplicate, using definition from line 76 */
+
+.search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 16px;
+    border: 3px solid var(--color-black);
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-lg);
+}
+
+.search-input:focus {
+    outline: none;
+    background: var(--color-red);
+    color: var(--color-white);
+}
+
+/* ============================
+   CARD GRIDS
+   ============================ */
+
+.ranking-section,
+.history-section,
+.players-section {
+    margin: var(--spacing-xl) 0;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.history-list,
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* ============================
+   PLAYERS CARDS
+   ============================ */
+
+.player-card {
+    background: linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+    border: 3px solid var(--color-black);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: -4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.player-card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.player-card-name {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--color-white);
+    text-shadow: -2px 2px 0 var(--color-black);
+}
+
+/* Hover léger, sans surcharge */
+.players-page .player-card:hover {
+    transform: translateY(-4px);
+    box-shadow: -6px 6px 0 rgba(255, 0, 0, 0.2);
+}
+
+/* ============================
+   LEADERBOARD E-SPORT
+   ============================ */
+
+/* Carte principale */
+.ranking-card {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #111 0%, #0a0a0a 100%);
+    border: 3px solid var(--color-black);
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+}
+
+/* Effet foil léger */
+.ranking-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/images/texture-foilin-holographic-overlay_.png');
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+/* Hover */
+.ranking-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: -10px 10px 0 var(--color-red);
+}
+
+/* Rang */
+.rank-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-red);
+    text-shadow: -3px 3px 0 var(--color-black);
+    width: 90px;
+    text-align: center;
+}
+
+/* Avatar */
+.rank-avatar {
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: 3px solid var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-right: 20px;
+}
+
+/* Infos joueur */
+.rank-info {
+    flex: 1;
+}
+
+.rank-name {
+    font-size: 1.4rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+.rank-character {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-top: 4px;
+}
+
+/* Points */
+.rank-points {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-red);
+    text-shadow: -2px 2px 0 var(--color-black);
+    margin-left: 20px;
+}
+
+/* Badge TOP 1 / TOP 3 */
+.rank-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--color-red);
+    color: var(--color-white);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid var(--color-black);
+    box-shadow: -3px 3px 0 var(--color-black);
+}
+
+/* Variantes */
+.ranking-card.top1 {
+    background: linear-gradient(135deg, #ff0000 0%, #990000 100%);
+    border-color: var(--color-black);
+}
+
+.ranking-card.top1 .rank-number {
+    color: #fff;
+    text-shadow: -3px 3px 0 rgba(0, 0, 0, 0.5);
+}
+
+.ranking-card.top3 {
+    border-color: var(--color-red);
+}
+
+/* ============================
+   MATCH HISTORY - E-SPORT STYLE
+   ============================ */
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Carte de match */
+.match-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+    border: 3px solid var(--color-black);
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+}
+
+/* Effet foil léger */
+.match-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/images/texture-foilin-holographic-overlay_.png');
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+/* Hover dynamique */
+.match-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: -10px 10px 0 var(--color-red);
+}
+
+/* Joueurs */
+.match-player {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 30%;
+}
+
+.match-player-name {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+.match-player-character {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-top: 4px;
+}
+
+/* Score central */
+.match-score {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-red);
+    text-shadow: -3px 3px 0 var(--color-black);
+    width: 20%;
+    text-align: center;
+}
+
+/* Badge vainqueur */
+.match-winner {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-red);
+    color: var(--color-white);
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid var(--color-black);
+    box-shadow: -3px 3px 0 var(--color-black);
+}
+
+/* Date */
+.match-date {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================
+   TOP 3 HYBRID (VERSUS + CHAMPIONS WALL)
+   ============================ */
+
+.top3-hybrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+/* TOP 1 — Carte centrale massive */
+.top-card.top1 {
+    width: 380px;
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #111, #0a0a0a);
+    border: 4px solid var(--color-black);
+    position: relative;
+    text-align: center;
+    box-shadow: -10px 12px 0 var(--color-red);
+    overflow: hidden;
+    animation: championLight 4s ease-in-out infinite;
+}
+
+/* Effet foil */
+.top-card.top1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/images/texture-foilin-holographic-overlay_.png');
+    opacity: 0.12;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+/* Spotlight */
+.top-card.top1::after {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -20%;
+    width: 140%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255,0,0,0.4), transparent 70%);
+    filter: blur(40px);
+    animation: spotlightMove 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.top-card.top1 > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* TOP 2 & 3 — Versus Cards */
+.top-row {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.top-card.top2,
+.top-card.top3 {
+    width: 260px;
+    padding: 24px;
+    background: linear-gradient(135deg, #111, #0a0a0a);
+    border: 3px solid var(--color-black);
+    position: relative;
+    text-align: center;
+    box-shadow: -6px 6px 0 rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+    overflow: hidden;
+}
+
+.top-card.top2::before,
+.top-card.top3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/images/texture-foilin-holographic-overlay_.png');
+    opacity: 0.08;
+    mix-blend-mode: soft-light;
+    pointer-events: none;
+}
+
+.top-card.top2:hover,
+.top-card.top3:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: -10px 10px 0 var(--color-red);
+}
+
+/* Badge */
+.top-badge {
+    background: var(--color-red);
+    color: white;
+    padding: 6px 16px;
+    border: 3px solid var(--color-black);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    box-shadow: -3px 3px 0 var(--color-black);
+    font-size: 0.75rem;
+    z-index: 10;
+}
+
+/* Avatar */
+.top-avatar {
+    width: 110px;
+    height: 110px;
+    background: var(--color-red);
+    border: 4px solid var(--color-black);
+    border-radius: 50%;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    position: relative;
+    z-index: 3;
+}
+
+.top-card.top2 .top-avatar,
+.top-card.top3 .top-avatar {
+    width: 80px;
+    height: 80px;
+    font-size: 2rem;
+    margin: 12px auto;
+}
+
+/* Nom */
+.top-name {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 8px 0;
+    position: relative;
+    z-index: 3;
+}
+
+.top-card.top2 .top-name,
+.top-card.top3 .top-name {
+    font-size: 1.4rem;
+    margin: 4px 0;
+}
+
+/* Perso */
+.top-character {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 3;
+}
+
+.top-card.top2 .top-character,
+.top-card.top3 .top-character {
+    font-size: 0.9rem;
+}
+
+/* Power level */
+.top-power {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-red);
+    text-shadow: -3px 3px 0 var(--color-black);
+    position: relative;
+    z-index: 3;
+}
+
+.top-card.top2 .top-power,
+.top-card.top3 .top-power {
+    font-size: 1.3rem;
+}
+
+/* Animations */
+@keyframes championLight {
+    0%, 100% { 
+        filter: brightness(1);
+        box-shadow: -10px 12px 0 var(--color-red);
+    }
+    50% { 
+        filter: brightness(1.15);
+        box-shadow: -10px 12px 0 rgba(255, 0, 0, 0.6);
+    }
+}
+
+@keyframes spotlightMove {
+    0% { transform: translateX(-20%); }
+    50% { transform: translateX(20%); }
+    100% { transform: translateX(-20%); }
+}

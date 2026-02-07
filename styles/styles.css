@@ -1,0 +1,13 @@
+/* ============================
+   SMASH ARENA - MAIN STYLESHEET
+   IMPORTS ALL MODULAR CSS FILES
+   ============================ */
+
+@import url('variables.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('animations.css');
+@import url('player-detail.css');
+@import url('holo-cards.css');
+@import url('responsive.css');
+@import url('extras.css');

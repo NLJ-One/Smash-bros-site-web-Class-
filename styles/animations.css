@@ -1,0 +1,214 @@
+/* ============================
+   GLOBAL ANIMATIONS & EFFECTS
+   ============================ */
+
+/* ===== SCROLL REVEAL ANIMATIONS ===== */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fade-in et slide-up pour les sections */
+.news-section,
+.ranking-section,
+.history-section,
+.players-section,
+.featured-section,
+.top3-section,
+.stats-section {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpSection 0.8s ease forwards;
+}
+
+/* Animation échelonnée pour chaque section */
+.home .news-section {
+    animation-delay: 0.2s;
+}
+
+.featured-section {
+    animation-delay: 0.25s;
+}
+
+.top3-section {
+    animation-delay: 0.3s;
+}
+
+.ranking-section {
+    animation-delay: 0.3s;
+}
+
+.history-section {
+    animation-delay: 0.3s;
+}
+
+.players-section {
+    animation-delay: 0.3s;
+}
+
+.stats-section {
+    animation-delay: 0.35s;
+}
+
+@keyframes fadeUpSection {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== PARALLAX EFFECT ===== */
+.parallax-background {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* ===== CARD ANIMATIONS ===== */
+.match-card,
+.ranking-card,
+.player-card,
+.news-card,
+.stat-card {
+    opacity: 0;
+    animation: fadeInCard 0.6s ease forwards;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.match-card:nth-child(1) { animation-delay: 0.1s; }
+.match-card:nth-child(2) { animation-delay: 0.2s; }
+.match-card:nth-child(3) { animation-delay: 0.3s; }
+.match-card:nth-child(n+4) { animation-delay: 0.4s; }
+
+.ranking-card:nth-child(1) { animation-delay: 0.1s; }
+.ranking-card:nth-child(2) { animation-delay: 0.2s; }
+.ranking-card:nth-child(3) { animation-delay: 0.3s; }
+.ranking-card:nth-child(n+4) { animation-delay: 0.4s; }
+
+.news-card:nth-child(1) { animation-delay: 0.1s; }
+.news-card:nth-child(2) { animation-delay: 0.15s; }
+.news-card:nth-child(3) { animation-delay: 0.2s; }
+
+.player-card:nth-child(1) { animation-delay: 0.1s; }
+.player-card:nth-child(2) { animation-delay: 0.15s; }
+.player-card:nth-child(3) { animation-delay: 0.2s; }
+.player-card:nth-child(n+4) { animation-delay: 0.25s; }
+
+@keyframes fadeInCard {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== HOVER ANIMATIONS ===== */
+.match-card:hover,
+.ranking-card:hover,
+.player-card:hover,
+.news-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.3);
+}
+
+.stat-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 35px rgba(255, 0, 0, 0.25);
+}
+
+/* ===== TITLE ANIMATIONS ===== */
+.section-title {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--color-red);
+    transition: width 0.3s ease;
+}
+
+.news-section:hover .section-title::after,
+.ranking-section:hover .section-title::after,
+.history-section:hover .section-title::after,
+.players-section:hover .section-title::after,
+.featured-section:hover .section-title::after,
+.top3-section:hover .section-title::after {
+    width: 100px;
+}
+
+/* ===== HERO PARALLAX ===== */
+@media (prefers-reduced-motion: no-preference) {
+    .hero-section {
+        background-attachment: fixed;
+    }
+}
+
+/* ===== COUNTER ANIMATIONS ===== */
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.stat-number {
+    animation: countUp 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-weight: 900;
+    color: var(--color-red);
+    font-size: 2.5rem;
+}
+
+/* ===== TOP 3 ANIMATIONS ===== */
+@keyframes podiumGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), inset 0 0 20px rgba(255, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255, 0, 0, 0.6), inset 0 0 30px rgba(255, 0, 0, 0.3);
+    }
+}
+
+.podium-medal {
+    animation: podiumGlow 2s ease-in-out infinite;
+}
+
+@keyframes medalBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.top3-display .medal-1 {
+    animation: medalBounce 2s ease-in-out infinite;
+}
+
+.top3-display .medal-2 {
+    animation: medalBounce 2.2s ease-in-out infinite 0.2s;
+}
+
+.top3-display .medal-3 {
+    animation: medalBounce 2.4s ease-in-out infinite 0.4s;
+}

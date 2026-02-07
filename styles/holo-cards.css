@@ -1,0 +1,307 @@
+/* ============================
+   HOLO CARD EFFECTS - TRAINER GALLERY STYLE
+   ============================ */
+
+/* Base holo card variables */
+.holo-card {
+    --pointer-x: 50%;
+    --pointer-y: 50%;
+    --pointer-from-center: 0;
+    --background-x: 50%;
+    --background-y: 50%;
+    --clip-borders: inset(0);
+    --card-opacity: 1;
+    
+    /* Performance optimization */
+    will-change: filter, transform;
+}
+
+/* ============================
+   TRAINER GALLERY RARE HOLO - FOIL LAYER
+   ============================ */
+
+.holo-card[data-rarity="trainer gallery rare holo"] .foil,
+.holo-card[data-rarity="rare holo"][data-trainer-gallery="true"] .foil {
+    --space: 5%;
+    --angle: -22deg;
+    clip-path: var(--clip-borders);
+    opacity: 0.9 !important;
+    will-change: filter, background-position;
+    background-image: url('/images/texture-foilin-holographic-overlay_.png'), repeating-linear-gradient(var(--angle), hsla(283, 49%, 60%, 0.75) calc(var(--space) * 1), hsla(2, 74%, 59%, 0.75) calc(var(--space) * 2), hsla(53, 67%, 53%, 0.75) calc(var(--space) * 3), hsla(93, 56%, 52%, 0.75) calc(var(--space) * 4), hsla(176, 38%, 50%, 0.75) calc(var(--space) * 5), hsla(228, 100%, 77%, 0.75) calc(var(--space) * 6), hsla(283, 49%, 61%, 0.75) calc(var(--space) * 7)) !important;
+    filter: brightness(calc((var(--pointer-from-center) * 0.3) + 0.5)) contrast(2.3) saturate(1) !important;
+    mix-blend-mode: screen !important;
+}
+
+.holo-card[data-rarity="trainer gallery rare holo"] .foil::after,
+.holo-card[data-rarity="rare holo"][data-trainer-gallery="true"] .foil::after {
+    background-image: radial-gradient(
+        farthest-corner ellipse
+        at calc(((var(--pointer-x)) * 0.5) + 25%)
+           calc(((var(--pointer-y)) * 0.5) + 25%),
+        hsl(0, 0%, 100%) 5%,
+        hsla(300, 100%, 11%, 0.6) 40%,
+        hsl(0, 0%, 22%) 120%
+    ) !important;
+    
+    background-position: center center !important;
+    background-size: 400% 500% !important;
+    
+    filter: brightness(calc((var(--pointer-from-center) * 0.2) + 0.4)) 
+            contrast(0.85) 
+            saturate(1.1) !important;
+    mix-blend-mode: hard-light !important;
+    opacity: 0.8 !important;
+}
+
+.holo-card[data-rarity="trainer gallery rare holo"] .foil::before,
+.holo-card[data-rarity="rare holo"][data-trainer-gallery="true"] .foil::before {
+    display: none !important;
+}
+
+/* ============================
+   ULTRA RARE (FULL ART SUPPORTER)
+   ============================ */
+
+.holo-card[data-subtypes*="supporter"][data-rarity="rare ultra"] .foil {
+    filter: brightness(calc((var(--pointer-from-center) * 0.05) + 0.8)) 
+            contrast(1.75) 
+            saturate(1.2) !important;
+    opacity: 0.85 !important;
+}
+
+.holo-card[data-subtypes*="supporter"][data-rarity="rare ultra"] .foil::after {
+    filter: brightness(calc((var(--pointer-from-center) * 0.4) + 0.85)) 
+            contrast(2) 
+            saturate(0.5) !important;
+    opacity: 0.9 !important;
+}
+
+.holo-card[data-subtypes*="supporter"][data-rarity="rare ultra"] .foil::before {
+    content: "" !important;
+    background-image: radial-gradient(
+        farthest-corner circle at var(--pointer-x) var(--pointer-y),
+        hsl(0, 0%, 100%) 0%,
+        hsla(0, 0%, 0%, 0) 80%
+    ) !important;
+    
+    mix-blend-mode: screen !important;
+    opacity: 0.5 !important;
+    display: block !important;
+}
+
+/* ============================
+   SECRET RARE (GOLD & BLACK)
+   ============================ */
+
+.holo-card[data-rarity="rare secret"][data-trainer-gallery="true"] .foil {
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    will-change: filter, background-position, opacity !important;
+    
+    background-image:
+        /* Dégradé doré 45deg (base) */
+        linear-gradient(45deg, hsl(46, 95%, 50%), hsl(52, 100%, 69%)),
+        
+        /* Radial gradient sombre → clair */
+        radial-gradient(
+            farthest-corner circle at var(--pointer-x) var(--pointer-y),
+            hsl(152.7, 21.6%, 10%) 10%,
+            hsla(177, 22%, 80%, 0.1) 50%,
+            hsla(0, 0%, 95%, 0.98) 90%
+        ),
+        
+        /* Deuxième couche glitter décalée */
+        var(--glitter),
+        
+        /* Couche glitter */
+        var(--glitter),
+        
+        /* Texture holographique iridescente (AU DESSUS) */
+        url('/images/texture-foilin-holographic-overlay_.png') !important;
+    
+    background-size:
+        cover,
+        cover,
+        var(--glittersize),
+        var(--glittersize),
+        cover !important;
+    
+    background-position:
+        center center,
+        center center,
+        55% 55%,
+        40% 45%,
+        center center !important;
+    
+    background-blend-mode: color, soft-light, darken, soft-light, overlay !important;
+    filter: brightness(1.8) contrast(2.2) saturate(2.5) !important;
+    mix-blend-mode: screen !important;
+    opacity: 1 !important;
+}
+
+.holo-card[data-rarity="rare secret"][data-trainer-gallery="true"] .foil::before {
+    content: "" !important;
+    display: block !important;
+    will-change: transform, filter !important;
+    
+    background-image:
+        /* Conic-gradient doré rotatif */
+        conic-gradient(
+            from 0deg at 50% 50%,
+            hsl(46, 95%, 50%) 0deg,
+            hsl(52, 100%, 69%) 45deg,
+            hsl(60, 100%, 70%) 90deg,
+            hsl(46, 95%, 50%) 135deg,
+            hsl(40, 100%, 60%) 180deg,
+            hsl(52, 100%, 69%) 225deg,
+            hsl(46, 95%, 50%) 270deg,
+            hsl(52, 100%, 69%) 315deg,
+            hsl(46, 95%, 50%) 360deg
+        ),
+        
+        /* Texture overlay */
+        url('/images/texture-foilin-holographic-overlay_.png') !important;
+        
+    background-size: 150% 150%, cover !important;
+    background-position: center center, center center !important;
+    background-blend-mode: color-dodge, soft-light !important;
+    
+    mix-blend-mode: color-dodge !important;
+    filter: brightness(2) contrast(2.5) saturate(2.8) hue-rotate(15deg) !important;
+    opacity: 0.95 !important;
+    animation: secretRareGoldenPulse 8s ease-in-out infinite;
+}
+
+.holo-card[data-rarity="rare secret"][data-trainer-gallery="true"] .foil::after {
+    content: "" !important;
+    display: block !important;
+    will-change: filter, background-position !important;
+    
+    background-image:
+        /* Glitter premium */
+        var(--glitter),
+        
+        /* Repeating striped golden */
+        repeating-linear-gradient(
+            45deg,
+            hsla(46, 100%, 60%, 0.6) 0px,
+            hsla(52, 100%, 70%, 0.5) 10px,
+            hsla(46, 95%, 50%, 0.4) 20px
+        ),
+        
+        /* Texture overlay */
+        url('/images/texture-foilin-holographic-overlay_.png') !important;
+        
+    background-size: 
+        var(--glittersize),
+        100% 100%,
+        cover !important;
+        
+    background-position:
+        40% 45%,
+        center center,
+        center center !important;
+        
+    background-blend-mode: luminosity, color-dodge, soft-light !important;
+    
+    filter: brightness(2) contrast(2.2) saturate(2.5) !important;
+    mix-blend-mode: hard-light !important;
+    opacity: 1 !important;
+}
+
+@keyframes secretRareGoldenPulse {
+    0% {
+        transform: rotate(0deg);
+        filter: brightness(2) contrast(2.5) saturate(2.8) hue-rotate(15deg);
+    }
+    25% {
+        transform: rotate(45deg);
+        filter: brightness(2.1) contrast(2.6) saturate(2.9) hue-rotate(20deg);
+    }
+    50% {
+        transform: rotate(90deg);
+        filter: brightness(2.2) contrast(2.8) saturate(3) hue-rotate(25deg);
+    }
+    75% {
+        transform: rotate(225deg);
+        filter: brightness(2.1) contrast(2.6) saturate(2.9) hue-rotate(20deg);
+    }
+    100% {
+        transform: rotate(360deg);
+        filter: brightness(2) contrast(2.5) saturate(2.8) hue-rotate(15deg);
+    }
+}
+
+/* ============================
+   VMAX GALLERY
+   ============================ */
+
+.holo-card[data-rarity="rare holo vmax"][data-trainer-gallery="true"] {
+    --glare-strength: radial-gradient(
+        farthest-corner circle at var(--pointer-x) var(--pointer-y),
+        hsl(50, 30%, 90%) 0%,
+        hsl(162, 5%, 40%) 50%,
+        hsl(0, 0%, 0%) 120%
+    );
+}
+
+.holo-card[data-rarity="rare holo vmax"][data-trainer-gallery="true"] .foil {
+    filter: brightness(1) contrast(1) !important;
+    opacity: calc(var(--card-opacity) * var(--pointer-from-center) * 0.85) !important;
+}
+
+/* ============================
+   V GALLERY
+   ============================ */
+
+.holo-card[data-rarity="rare holo v"][data-trainer-gallery="true"] .foil {
+    opacity: calc(var(--card-opacity) * 0.4) !important;
+}
+
+/* ============================
+   BLEND-MODE FALLBACKS FOR BROWSERS
+   ============================ */
+
+/* color-dodge fallback */
+@supports not (mix-blend-mode: color-dodge) {
+    .holo-card[data-rarity="trainer gallery rare holo"] .foil,
+    .holo-card[data-rarity="rare holo"][data-trainer-gallery="true"] .foil {
+        mix-blend-mode: lighten !important;
+        opacity: 0.95 !important;
+    }
+    
+    .holo-card[data-rarity="rare secret"][data-trainer-gallery="true"] .foil::before {
+        mix-blend-mode: lighten !important;
+        opacity: 0.9 !important;
+    }
+}
+
+/* hard-light fallback */
+@supports not (mix-blend-mode: hard-light) {
+    .holo-card[data-rarity="trainer gallery rare holo"] .foil::after,
+    .holo-card[data-rarity="rare secret"][data-trainer-gallery="true"] .foil::after {
+        mix-blend-mode: overlay !important;
+        opacity: 0.8 !important;
+    }
+}
+
+/* soft-light fallback */
+@supports not (mix-blend-mode: soft-light) {
+    .foil::after {
+        mix-blend-mode: overlay !important;
+        opacity: 0.5 !important;
+    }
+}
+
+/* screen and multiply fallback */
+@supports not (mix-blend-mode: screen) {
+    .holo-card[data-rarity="trainer gallery rare holo"] .foil,
+    .holo-card[data-rarity="rare holo"][data-trainer-gallery="true"] .foil {
+        mix-blend-mode: lighten !important;
+    }
+    
+    .foil {
+        mix-blend-mode: lighten !important;
+        opacity: 0.6 !important;
+    }
+}

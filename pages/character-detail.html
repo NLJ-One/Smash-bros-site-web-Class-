@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https://commondatastorage.googleapis.com; frame-src https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="permissions-policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()">
+    <title>Détail Personnage – Smash Arena</title>
+    <!-- Google Fonts - Anton + Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/themes.css">
+    <link rel="stylesheet" href="../styles/audio-player.css">
+</head>
+
+<body class="character-detail-page">
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">☰</button>
+    
+    <!-- Background Music Player -->
+    <audio id="bgAudio" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+    <div class="audio-player-container">
+        <button id="musicToggle" class="music-toggle" aria-label="Basculer la musique de fond">🔊</button>
+        <div class="volume-control-wrapper">
+            <label for="volumeControl" class="volume-label">Volume</label>
+            <input type="range" id="volumeControl" min="0" max="100" value="30" aria-label="Contrôle du volume">
+        </div>
+    </div>
+
+    <header class="globalheader">
+        <nav class="navbar" aria-label="Navigation principale">
+            <a href="../index.html" class="nav-logo">SMASH ARENA</a>
+            <ul class="nav-links">
+                <li><a href="classement.html">Classement</a></li>
+                <li><a href="historique.html">Historique</a></li>
+                <li><a href="joueurs.html">Joueurs</a></li>
+                <li><a href="characters.html">Personnages</a></li>
+                <li><a href="compare.html">Comparateur</a></li>
+                <li><a href="stats.html">Stats Globales</a></li>
+                <li><a href="saison.html">Saison</a></li>
+            </ul>
+            <div class="nav-footer">© Smash Arena par Noah Jean-Louis</div>
+        </nav>
+    </header>
+
+    <main class="container" id="main" role="main">
+        <div class="detail-nav-arrows">
+            <button id="prevDetail" class="detail-arrow">←</button>
+            <button id="nextDetail" class="detail-arrow">→</button>
+        </div>
+        <section id="characterDetailContainer"></section>
+    </main>
+
+    <footer class="footer">
+        <p>SMASH ARENA © 2026 – Détail Personnage</p>
+    </footer>
+
+    <script src="../scripts/security.js"></script>
+    <script src="../scripts/characters-data.js"></script>
+    <script src="../scripts/script.js"></script>
+    <script src="../scripts/character-detail.js"></script>
+</body>
+</html>
+
