@@ -1,0 +1,283 @@
+:root {
+    --intro-red: #e60012;
+    --intro-red-dark: #b5000e;
+    --intro-black: #0a0a0a;
+    --intro-white: #f7f7f7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.intro {
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--intro-white);
+    background: radial-gradient(circle at 20% 20%, #2a0004, #090909 55%, #050505 100%);
+    overflow: hidden;
+}
+
+.intro-stage {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.intro-glow {
+    position: absolute;
+    inset: -20% -10% auto auto;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, rgba(230, 0, 18, 0.35), rgba(230, 0, 18, 0));
+    filter: blur(10px);
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+.intro-ring {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 70vmin;
+    height: 70vmin;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: ringExpand 3s ease-out forwards;
+}
+
+.intro-scan {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+    transform: translateX(-120%);
+    animation: scanSweep 2.6s ease-in-out 0.6s forwards;
+}
+
+.intro-burst {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    width: 6px;
+    height: 6px;
+    background: var(--intro-red);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 30px rgba(230, 0, 18, 0.8);
+    animation: burst 2.2s ease-out forwards;
+}
+
+.intro-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.4;
+    animation: gridShift 6s linear infinite;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+}
+
+.intro-kicker {
+    letter-spacing: 0.45em;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 16px;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.intro-title {
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(3rem, 9vw, 7rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 40px rgba(230, 0, 18, 0.6);
+}
+
+.intro-title__word {
+    display: block;
+    animation: titleGlitch 2.6s ease-out both;
+}
+
+.intro-title__word:last-child {
+    color: var(--intro-red);
+    animation-delay: 0.2s;
+}
+
+.intro-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.intro-divider {
+    width: 180px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--intro-red), transparent);
+    margin: 10px 0 20px;
+    animation: expandLine 1.4s ease-out 0.8s both;
+}
+
+.intro-hint {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 32px;
+    animation: fadeInUp 1s ease-out 1s both;
+}
+
+.intro-enter {
+    font-family: 'Anton', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    padding: 14px 36px;
+    border: 3px solid var(--intro-white);
+    background: transparent;
+    color: var(--intro-white);
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(230, 0, 18, 0.4);
+    transition: transform 0.2s ease, background 0.2s ease;
+    animation: fadeInUp 1s ease-out 1.4s both;
+}
+
+.intro-enter:hover {
+    background: var(--intro-red);
+    transform: translateY(-2px);
+}
+
+.intro-enter:focus-visible {
+    outline: 3px solid var(--intro-red);
+    outline-offset: 4px;
+}
+
+.intro-corner {
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    z-index: 1;
+}
+
+.intro-corner--tl {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.intro-corner--tr {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.intro-corner--bl {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+.intro-corner--br {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes ringExpand {
+    0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes scanSweep {
+    0% { transform: translateX(-120%); }
+    100% { transform: translateX(120%); }
+}
+
+@keyframes burst {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(90);
+        opacity: 0;
+    }
+}
+
+@keyframes gridShift {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(60px); }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandLine {
+    0% {
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@keyframes titleGlitch {
+    0% { transform: translateY(24px); opacity: 0; }
+    30% { transform: translateY(0); opacity: 1; }
+    60% { text-shadow: -6px 0 rgba(230, 0, 18, 0.7), 6px 0 rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 35px rgba(230, 0, 18, 0.6); }
+}
+
+@media (max-width: 768px) {
+    .intro-subtitle {
+        letter-spacing: 0.12em;
+    }
+
+    .intro-enter {
+        width: 100%;
+        max-width: 320px;
+    }
+}
