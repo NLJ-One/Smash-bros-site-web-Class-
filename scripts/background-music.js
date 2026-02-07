@@ -5,6 +5,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const musicToggle = document.getElementById('musicToggle');
     
     if (!audioPlayer) return;
+
+    audioPlayer.addEventListener('error', function() {
+        const mediaError = audioPlayer.error;
+        const errorCode = mediaError ? mediaError.code : 'unknown';
+        console.error('Audio error:', errorCode, mediaError);
+    });
+
+    audioPlayer.addEventListener('canplay', function() {
+        console.log('Audio ready:', audioPlayer.currentSrc || 'no-src');
+    });
+
+    audioPlayer.addEventListener('playing', function() {
+        console.log('Audio playing');
+    });
     
     // Set default volume to 30%
     audioPlayer.volume = 0.3;
@@ -36,9 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Auto-play on user interaction (for browser restrictions)
     document.addEventListener('click', function() {
+        if (audioPlayer.muted) {
+            audioPlayer.muted = false;
+        }
         if (audioPlayer.paused) {
             audioPlayer.play().catch(function(err) {
-                console.log('Auto-play prevented:', err);
+                console.error('Audio play failed:', err);
             });
         }
     }, { once: true });
